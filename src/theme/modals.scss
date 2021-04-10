@@ -1,0 +1,29 @@
+.add-item {
+  .modal-wrapper {
+    max-height: 80%;
+    bottom: 0;
+    position: absolute;
+
+    .ios-header {
+      height: 4px;
+      background: rgba(0, 0, 0, 0.1);
+      width: 50%;
+      align-items: center;
+      text-align: center;
+      margin: auto;
+      border-radius: 4px;
+    }
+  }
+
+  &.md {
+    .modal-wrapper {
+      border-radius: 8px 8px 0 0;
+    }
+  }
+
+  &.ios {
+    .modal-wrapper {
+      border-radius: 16px 16px 0 0;
+    }
+  }
+}

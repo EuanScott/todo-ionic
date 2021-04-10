@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar *ngIf="settingsService.isAndroid">
+    <ion-title>
+      Create item
+    </ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button color="primary"
+                  (click)="closeModal()">
+        <ion-icon slot="icon-only"
+                  ios="close-circle-outline"
+                  md="close-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="!settingsService.isAndroid">
+    <div class="ios-header"> </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="addNewItem()"
+        class="ion-margin"
+        #pageForm="ngForm">
+    <ion-card>
+      <ion-card-content>
+
+        <ion-item lines="none">
+          <ion-label color="primary"
+                     position="floating">
+            Title:
+          </ion-label>
+
+          <ion-input type="text"
+                     [(ngModel)]="addItem.title"
+                     name="title">
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="primary"
+                     position="floating">
+            Date:
+          </ion-label>
+          <ion-datetime displayFormat="YYYY/MM/DD"
+                        [min]="minDate"
+                        [max]="maxDate"
+                        [(ngModel)]="addItem.date"
+                        name="date">
+          </ion-datetime>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="primary"
+                     position="floating">
+            Time:
+          </ion-label>
+          <ion-datetime displayFormat="HH:mm"
+                        [(ngModel)]="addItem.time"
+                        name="time">
+          </ion-datetime>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="primary"
+                     position="floating">
+            Description:
+          </ion-label>
+          <ion-textarea rows="6"
+                        cols="20"
+                        [(ngModel)]="addItem.description"
+                        name="description">
+          </ion-textarea>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-button type="submit"
+              expand="block"
+              (click)="pageForm.ngSubmit.emit()"
+              class="ion-no-margin"
+              [disabled]="disabled()">
+    Create
+  </ion-button>
+</ion-footer>

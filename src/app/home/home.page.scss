@@ -1,27 +1,27 @@
-#container {
-  text-align: center;
+.spinner-wrapper {
+  display: flex;
+  margin: 32px;
+  width: auto;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  ion-spinner {
+    margin: auto;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+ion-card {
+  ion-checkbox {
+    --size: 22px;
+  }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+  ion-card-title {
+    display: inline;
+    padding-left: 4px;
+  }
 
-  color: #8c8c8c;
+  ion-card-subtitle {
+    margin: 4px;
+  }
 
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  ion-card-content {
+  }
 }
