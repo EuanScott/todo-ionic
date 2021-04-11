@@ -12,7 +12,7 @@ To short to need one ^^
 ## Installation:
 - Clone the repo
 - Navigate to the project
-- ```[ionic server]```
+- ```ionic capacitor run <platform>```
 
 ## Usage:
 Add new items and complete them as you do them
