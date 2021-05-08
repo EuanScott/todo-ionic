@@ -1,0 +1,13 @@
+ion-card {
+  margin: 16px 0;
+}
+
+ion-footer {
+  background: var(--ion-color-light-shade);
+  border-radius: 16px 16px 0 0;
+  padding: 16px;
+
+  &::before {
+    display: none;
+  }
+}
