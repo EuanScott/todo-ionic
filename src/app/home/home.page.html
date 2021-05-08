@@ -23,23 +23,35 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card *ngFor="let item of todoList">
-    <ion-card-header>
-      <ion-checkbox (ionChange)="updateListItem(item.createdAt)"
-                    color="primary"></ion-checkbox>
-      <ion-card-title>
-        {{ item.title }}
-      </ion-card-title>
-      <ion-card-subtitle>
-        {{ item.date | date: 'EEEE dd/MMMM/yyyy' }}
-      </ion-card-subtitle>
-    </ion-card-header>
+  <div *ngFor="let item of todoList">
+    <ion-card>
+      <div class="spinner-wrapper"
+           *ngIf="!item.active">
+        <ion-spinner></ion-spinner>
+      </div>
 
-    <ion-card-content>
-      <ion-text *ngIf="item.description">
-        {{ item.description }}
-      </ion-text>
-    </ion-card-content>
-  </ion-card>
+      <span *ngIf="item.active">
+        <ion-card-header>
+          <ion-checkbox (ionChange)="updateListItem(item)"
+                        color="primary"></ion-checkbox>
+          <ion-card-title>
+            {{ item.title }}
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{ item.date | date: 'EEEE - dd MMMM yyyy' }}
+            {{ item.time | date: 'HH:mm' }}
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-text *ngIf="item.description">
+            {{ item.description }}
+          </ion-text>
+        </ion-card-content>
+      </span>
+    </ion-card>
+
+
+  </div>
 
 </ion-content>

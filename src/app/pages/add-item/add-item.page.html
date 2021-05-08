@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar *ngIf="settingsService.isAndroid">
     <ion-title>
-      Create new TODO
+      Create item
     </ion-title>
 
     <ion-buttons slot="primary">
@@ -32,7 +32,9 @@
             Title:
           </ion-label>
 
-          <ion-input type="text">
+          <ion-input type="text"
+                     [(ngModel)]="addItem.title"
+                     name="title">
           </ion-input>
         </ion-item>
 
@@ -41,9 +43,11 @@
                      position="floating">
             Date:
           </ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY"
-                        min="1994-03-14"
-                        max="2012-12-09">
+          <ion-datetime displayFormat="YYYY/MM/DD"
+                        [min]="minDate"
+                        [max]="maxDate"
+                        [(ngModel)]="addItem.date"
+                        name="date">
           </ion-datetime>
         </ion-item>
 
@@ -52,7 +56,9 @@
                      position="floating">
             Time:
           </ion-label>
-          <ion-datetime displayFormat="HH:mm">
+          <ion-datetime displayFormat="HH:mm"
+                        [(ngModel)]="addItem.time"
+                        name="time">
           </ion-datetime>
         </ion-item>
 
@@ -62,7 +68,9 @@
             Description:
           </ion-label>
           <ion-textarea rows="6"
-                        cols="20">
+                        cols="20"
+                        [(ngModel)]="addItem.description"
+                        name="description">
           </ion-textarea>
         </ion-item>
 
@@ -75,7 +83,8 @@
   <ion-button type="submit"
               expand="block"
               (click)="pageForm.ngSubmit.emit()"
-              class="ion-no-margin">
-    Login
+              class="ion-no-margin"
+              [disabled]="disabled()">
+    Create
   </ion-button>
 </ion-footer>

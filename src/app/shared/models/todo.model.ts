@@ -1,10 +1,10 @@
 import { Time } from "@angular/common";
 
 export interface TODO {
-  createdAt: Date
+  createdAt: string
   active: boolean
   title: string
-  date: Date
-  time: Time
+  date: string
+  time: string
   description: string
 }

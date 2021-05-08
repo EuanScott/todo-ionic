@@ -1,11 +1,15 @@
 import { Component } from '@angular/core'
 
 import { Platform } from '@ionic/angular'
-import { DeviceInfo, Plugins } from '@capacitor/core'
+import {
+  DeviceInfo,
+  Plugins,
+  StatusBarStyle,
+} from '@capacitor/core'
 
 import { SettingsService } from './shared/services/index'
 
-const { Device } = Plugins
+const { Device, StatusBar } = Plugins
 
 @Component({
   selector: 'app-root',
@@ -28,6 +32,9 @@ export class AppComponent {
           .then((info: DeviceInfo) => {
             this.settingsService.setDeviceInfo = info
           })
+
+        StatusBar.setStyle({ style: StatusBarStyle.Light })
+        StatusBar.setBackgroundColor({ color: '#008080' })
       })
   }
 }
