@@ -1,7 +1,4 @@
-# Todo
-
-## Project Name: 
-todo-ionic
+# Todo App implemented in Ionic
 
 ## Description:
 A template app used to iron out ideas for a new App to create in Flutter
